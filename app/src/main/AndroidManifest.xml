@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.fit_lifegym">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
+    <!-- Video Call Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+
+    <!-- Required for Android 12+ -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+    <!-- Wearable & Health Permissions -->
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
+
+    <application
+        android:name=".FitLifeApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Fit_lifeGym"
+        android:enableOnBackInvokedCallback="true">
+
+        <activity
+            android:name=".IntroActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".OnboardingActivity" android:exported="false" />
+
+        <activity
+            android:name=".ConversationalOnboardingActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".RegisterActivity" android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".BookingActivity" />
+        <activity android:name=".BookingEnhancedActivity" />
+        <activity android:name=".WorkoutTrackerActivity" />
+        <activity android:name=".NutritionTrackerActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".TrainerActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".DoctorActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".SubscriptionActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".PaymentHistoryActivity" />
+        <activity android:name=".WorkoutHistoryActivity" />
+        <activity android:name=".WorkoutDetailsActivity" />
+        <activity android:name=".ProgressChartsActivity" />
+        <activity android:name=".BookingHistoryActivity" />
+        <activity android:name=".RateSessionActivity" />
+        <activity android:name=".ExerciseLibraryActivity" />
+        <activity android:name=".ExerciseDetailActivity" />
+        <activity android:name=".ProfessionalProfileActivity" />
+        <activity android:name=".ApprovalListActivity" />
+        <activity android:name=".MealPlansActivity" />
+        <activity android:name=".WorkoutPlansActivity" />
+        <activity android:name=".RecipeDetailActivity" />
+        <activity android:name=".VideoLibraryActivity" />
+        <activity android:name=".SocialFeedActivity" />
+        <activity android:name=".SystemManagementActivity" />
+        <activity android:name=".ProfessionalReviewsActivity" />
+
+        <!-- New Personalized Guidance Features -->
+        <activity android:name=".PersonalizedPlanActivity" android:screenOrientation="portrait" />
+        <activity android:name=".PersonalizedPlanResultActivity" android:screenOrientation="portrait" />
+        <activity android:name=".TrainerGuidanceActivity" android:screenOrientation="portrait" />
+        <activity android:name=".DoctorPersonalizedPlanActivity" android:screenOrientation="portrait" />
+
+        <activity android:name=".CallActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+
+        <activity
+            android:name=".CreateReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ViewReportActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MedicalReportsListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".DoctorMealPlanActivity" android:exported="false" />
+        <activity android:name=".TrainerWorkoutPlanActivity" android:exported="false" />
+
+        <service android:name=".services.MainService"
+            android:foregroundServiceType="camera|microphone|dataSync"
+            android:exported="false" />
+
+        <service
+            android:name=".services.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".services.CallNotificationReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="ACTION_ACCEPT_CALL" />
+                <action android:name="ACTION_DECLINE_CALL" />
+                <action android:name="ACTION_END_CALL_FROM_NOTIF" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".services.MainServiceReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="ACTION_EXIT_CALL" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".utils.NotificationHelper$WorkoutReminderReceiver"
+            android:exported="false" />
+        <receiver android:name=".utils.NotificationHelper$BookingReminderReceiver"
+            android:exported="false" />
+    </application>
+
+</manifest>
