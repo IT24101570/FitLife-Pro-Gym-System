@@ -89,12 +89,14 @@
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilWeight"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_margin="4dp"
                     android:hint="Weight (kg)"
                     android:textColorHint="@color/text_secondary"
+                    app:errorEnabled="true"
                     app:boxStrokeColor="@color/accent"
                     app:hintTextColor="@color/accent"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -107,12 +109,14 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilBP"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_margin="4dp"
                     android:hint="Blood Pressure"
                     android:textColorHint="@color/text_secondary"
+                    app:errorEnabled="true"
                     app:boxStrokeColor="@color/accent"
                     app:hintTextColor="@color/accent"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -125,12 +129,14 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilBMI"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_margin="4dp"
                     android:hint="BMI"
                     android:textColorHint="@color/text_secondary"
+                    app:errorEnabled="true"
                     app:boxStrokeColor="@color/accent"
                     app:hintTextColor="@color/accent"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -143,12 +149,14 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilHeartRate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_margin="4dp"
                     android:hint="Heart Rate"
                     android:textColorHint="@color/text_secondary"
+                    app:errorEnabled="true"
                     app:boxStrokeColor="@color/accent"
                     app:hintTextColor="@color/accent"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -171,11 +179,13 @@
                 android:layout_marginBottom="8dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSymptoms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:hint="Symptoms"
                 android:textColorHint="@color/text_secondary"
+                app:errorEnabled="true"
                 app:boxStrokeColor="@color/accent"
                 app:hintTextColor="@color/accent"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -190,11 +200,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDiagnosis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:hint="Diagnosis"
                 android:textColorHint="@color/text_secondary"
+                app:errorEnabled="true"
                 app:boxStrokeColor="@color/accent"
                 app:hintTextColor="@color/accent"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -218,11 +230,13 @@
                 android:layout_marginBottom="8dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilExercises"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:hint="Prescribed Exercises"
                 android:textColorHint="@color/text_secondary"
+                app:errorEnabled="true"
                 app:boxStrokeColor="@color/accent"
                 app:hintTextColor="@color/accent"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -237,11 +251,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDietary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:hint="Dietary Advice"
                 android:textColorHint="@color/text_secondary"
+                app:errorEnabled="true"
                 app:boxStrokeColor="@color/accent"
                 app:hintTextColor="@color/accent"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -256,11 +272,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRecommendations"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:hint="General Recommendations"
                 android:textColorHint="@color/text_secondary"
+                app:errorEnabled="true"
                 app:boxStrokeColor="@color/accent"
                 app:hintTextColor="@color/accent"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
