@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "990203577736",
+    "firebase_url": "https://fit-life-gym-default-rtdb.firebaseio.com",
+    "project_id": "fit-life-gym",
+    "storage_bucket": "fit-life-gym.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990203577736:android:fada0e3b0ce257b4e6263d",
+        "android_client_info": {
+          "package_name": "com.example.fit_lifegym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990203577736-es465c1ip28fvmubqd8asbdgkmk6sb8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyP9BkEAZ79iROXARNlE9DEHAugd652ws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990203577736-es465c1ip28fvmubqd8asbdgkmk6sb8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

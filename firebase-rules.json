@@ -1,0 +1,113 @@
+{
+  "rules": {
+    "video_call_users": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth.uid === $uid",
+        "signaling": {
+          ".write": "auth != null"
+        },
+        "latest_event": {
+          ".write": "auth != null"
+        },
+        "status": {
+          ".write": "auth.uid === $uid"
+        }
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        "password": {
+          ".read": false,
+          ".write": false
+        }
+      }
+    },
+    "bookings": {
+      ".read": "auth != null",
+      "$bookingId": {
+        ".write": "auth != null && (!data.exists() || data.child('userId').val() === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'TRAINER' || root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN')"
+      }
+    },
+    "subscriptions": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'"
+      }
+    },
+    "payments": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'"
+      }
+    },
+    "workoutHistory": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'TRAINER' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "workoutSessions": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'TRAINER' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "personalRecords": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'TRAINER' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "bodyMeasurements": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'TRAINER' || root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "achievements": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "nutritionLogs": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "meals": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN'"
+    },
+    "exerciseLibrary": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN' || root.child('users').child(auth.uid).child('role').val() === 'TRAINER'"
+    },
+    "workoutPlans": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN' || root.child('users').child(auth.uid).child('role').val() === 'TRAINER'"
+    },
+    "videoClasses": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN' || root.child('users').child(auth.uid).child('role').val() === 'TRAINER'"
+    },
+    "posts": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "professionals": {
+      ".read": "auth != null",
+      "$professionalId": {
+        ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN' || auth.uid === $professionalId"
+      }
+    },
+    "promoCodes": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN'"
+    }
+  }
+}
