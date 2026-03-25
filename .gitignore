@@ -1,9 +1,3 @@
-
-.gradle
-/local.properties
-/.idea
-/build
-/captures
-.externalNativeBuild
-.cxx
-*.iml
+# Default ignored files
+/shelf/
+/workspace.xml
