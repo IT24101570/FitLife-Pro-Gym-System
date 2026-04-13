@@ -107,7 +107,6 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
         if (tvTitle != null) tvTitle.setText("Plans for " + booking.getUserName());
 
         List<MealPlan> assignedPlans = new ArrayList<>();
-        MealPlanDialogAdapter dialogAdapter = new MealPlanDialogAdapter(assignedPlans);
         rvDialogMealPlans.setLayoutManager(new LinearLayoutManager(this));
         rvDialogMealPlans.setAdapter(dialogAdapter);
 
@@ -210,26 +209,21 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             Booking b = members.get(position);
             holder.tvName.setText(b.getUserName());
-            holder.btnAction.setText("Manage Plans");
-            holder.btnAction.setOnClickListener(v -> showMealPlansDialog(b));
         }
 
         @Override
         public int getItemCount() { return members.size(); }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            TextView tvName; MaterialButton btnAction;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvName = itemView.findViewById(R.id.tvMemberName);
-                btnAction = (MaterialButton) itemView.findViewById(R.id.btnAssignPlan);
-            }
-        }
+                    }
+                    }
     }
 
     private class MealPlanDialogAdapter extends RecyclerView.Adapter<MealPlanDialogAdapter.ViewHolder> {
         private final List<MealPlan> plans;
-        public MealPlanDialogAdapter(List<MealPlan> plans) { this.plans = plans; }
 
         @NonNull
         @Override
@@ -256,7 +250,6 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
 
         class ViewHolder extends RecyclerView.ViewHolder {
             TextView tvName, tvGoal, tvCalories, tvDescription, tvProtein, tvCarbs, tvFats; 
-            View btnActivate;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvName = itemView.findViewById(R.id.tvPlanName);

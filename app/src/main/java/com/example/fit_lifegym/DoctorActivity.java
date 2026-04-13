@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,9 +44,7 @@ public class DoctorActivity extends AppCompatActivity implements MainService.Inc
     @Inject MainServiceRepository serviceRepo;
     
     private TextView tvApprovalStatus;
-    private MaterialCardView cardManageProfile, cardConsultations, cardAvailability, cardMealPlans, cardMedicalReports;
     private MaterialButton btnRatings, btnLogout;
-    private ImageButton btnBack;
 
     // Incoming Call UI
     private View incomingCallLayout;
@@ -144,9 +141,8 @@ public class DoctorActivity extends AppCompatActivity implements MainService.Inc
         cardManageProfile.setOnClickListener(v -> startActivity(new Intent(this, ProfessionalProfileActivity.class)));
         cardConsultations.setOnClickListener(v -> startActivity(new Intent(this, BookingHistoryActivity.class)));
         cardAvailability.setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
-        cardMealPlans.setOnClickListener(v -> startActivity(new Intent(this, DoctorMealPlanActivity.class)));
         cardMedicalReports.setOnClickListener(v -> startActivity(new Intent(this, MedicalReportsListActivity.class)));
-        
+
         // Updated to point to the new Reviews activity
         btnRatings.setOnClickListener(v -> startActivity(new Intent(this, ProfessionalReviewsActivity.class)));
 
