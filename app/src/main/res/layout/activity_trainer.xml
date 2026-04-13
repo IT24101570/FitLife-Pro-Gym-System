@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_luxury"
+    tools:context=".TrainerActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_luxury"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_arrow_back_24"
+                    app:tint="@color/gold_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/elite_trainer"
+                    android:textColor="@color/text_off_white"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Incoming Call UI - Pinned to Top -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/incomingCallLayout"
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/gold_primary"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:id="@+id/incomingCallTitleTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/incoming_session_request"
+                        android:textColor="@color/bg_luxury"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/acceptButton"
+                            style="@style/PremiumButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/accept"
+                            app:backgroundTint="@color/success"
+                            android:textColor="@color/white" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/declineButton"
+                            style="@style/PremiumButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/decline"
+                            app:backgroundTint="@color/error"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Profile Approval Status -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardApprovalStatus"
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/credential_status"
+                        android:textColor="@color/text_off_white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05" />
+                    <TextView
+                        android:id="@+id/tvApprovalStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:text="@string/pending"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/practitioner_tools"
+                android:textColor="@color/text_muted_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:alignmentMode="alignMargins">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardManageProfile"
+                    style="@style/PremiumCard"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_my_calendar"
+                            app:tint="@color/gold_primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/professional_profile"
+                            android:gravity="center"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardSessions"
+                    style="@style/PremiumCard"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_recent_history"
+                            app:tint="@color/gold_primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/client_sessions"
+                            android:gravity="center"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardAvailability"
+                    style="@style/PremiumCard"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/baseline_settings_24"
+                            app:tint="@color/gold_primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/control_panel"
+                            android:gravity="center"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardWorkoutPlans"
+                    style="@style/PremiumCard"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_agenda"
+                            app:tint="@color/gold_primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/training_protocols"
+                            android:gravity="center"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnPersonalizedPlan"
+                    style="@style/PremiumCard"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/baseline_sports_gymnastics_24"
+                            app:tint="@color/gold_primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/personalized_regimens"
+                            android:gravity="center"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardManageVideos"
+                    style="@style/PremiumCard"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_slideshow"
+                            app:tint="@color/gold_primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/academy_library"
+                            android:gravity="center"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRatings"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/view_client_endorsements"
+                app:backgroundTint="@color/surface_luxury"
+                android:textColor="@color/gold_primary"
+                app:strokeColor="@color/gold_primary"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:text="@string/secure_sign_out"
+                app:backgroundTint="@color/surface_luxury"
+                app:strokeColor="@color/error"
+                app:strokeWidth="1dp"
+                android:textColor="@color/error" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

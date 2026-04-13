@@ -16,8 +16,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BOOKING SESSION"
-            android:textColor="@color/accent"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.1" />
@@ -26,9 +24,6 @@
             android:id="@+id/tvBookingProName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Professional Name"
-            android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -36,17 +31,12 @@
             android:id="@+id/tvBookingStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="Status: Pending"
-            android:textColor="@color/text_secondary"
             android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tvBookingDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:visibility="gone" />
 
@@ -54,39 +44,22 @@
             android:id="@+id/callActionsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:visibility="gone">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAudioCall"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:text="Audio Call"
                 app:icon="@drawable/ic_call"
-                app:strokeColor="@color/accent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVideoCall"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Video Call"
-                app:backgroundTint="@color/accent"
-                app:icon="@drawable/ic_video_on" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnJoinSession"
             style="@style/PremiumButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Join Live Session"
             android:visibility="gone"
             app:icon="@drawable/ic_video_on" />
 
@@ -94,7 +67,6 @@
             android:id="@+id/reviewSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -102,24 +74,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/divider"
-                android:layout_marginBottom="16dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="How was your session?"
-                android:textColor="@color/text_primary"
                 android:textStyle="bold" />
 
             <RatingBar
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:numStars="5"
                 android:stepSize="1.0"
                 android:isIndicator="false"
-                android:progressTint="@color/accent" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

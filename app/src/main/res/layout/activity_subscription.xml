@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_luxury">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_luxury"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Membership Plans"
+                android:textColor="@color/text_off_white"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Billing Toggle -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="@color/surface_luxury"
+                app:cardCornerRadius="24dp"
+                app:strokeColor="#1AFFFFFF"
+                app:strokeWidth="1dp">
+
+                <RadioGroup
+                    android:id="@+id/rgBillingCycle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <RadioButton
+                        android:id="@+id/rbMonthly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/button_secondary"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:text="Monthly"
+                        android:textColor="@color/gold_primary"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/rbYearly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/button_secondary"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:text="Yearly"
+                        android:textColor="@color/text_off_white" />
+                </RadioGroup>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Basic Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBasic"
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/rbBasic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BASIC"
+                            android:textColor="@color/text_muted_gold"
+                            android:textStyle="bold"
+                            android:buttonTint="@color/text_muted_gold"
+                            android:clickable="false"
+                            android:letterSpacing="0.1" />
+                        <TextView
+                            android:id="@+id/tvBasicPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="$29.99"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvBasicFeatures"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:lineSpacingExtra="8dp"
+                        android:text="• Access to gym floor\n• Basic equipment use\n• Group classes (2/week)"
+                        android:textColor="@color/text_muted_gold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Premium Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPremium"
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:strokeColor="@color/gold_primary"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/rbPremium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="PREMIUM"
+                            android:textColor="@color/gold_primary"
+                            android:textStyle="bold"
+                            android:buttonTint="@color/gold_primary"
+                            android:clickable="false"
+                            android:letterSpacing="0.1" />
+                        <TextView
+                            android:id="@+id/tvPremiumPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="$49.99"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvPremiumFeatures"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:lineSpacingExtra="8dp"
+                        android:text="• All Basic features\n• Unlimited group classes\n• 1 Personal training session\n• Sauna access"
+                        android:textColor="@color/text_muted_gold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Elite Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardElite"
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/rbElite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ELITE"
+                            android:textColor="@color/gold_dark"
+                            android:textStyle="bold"
+                            android:buttonTint="@color/gold_dark"
+                            android:clickable="false"
+                            android:letterSpacing="0.1" />
+                        <TextView
+                            android:id="@+id/tvElitePrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="$79.99"
+                            android:textColor="@color/text_off_white"
+                            android:textSize="22sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvEliteFeatures"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:lineSpacingExtra="8dp"
+                        android:text="• All Premium features\n• Unlimited personal training\n• Nutritonist consultation\n• VIP Lounge access"
+                        android:textColor="@color/text_muted_gold"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubscribe"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:text="Upgrade to Elite" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

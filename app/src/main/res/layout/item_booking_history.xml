@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
 
         <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -31,8 +25,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dr. John Smith"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -40,9 +32,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Personal Training"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp"
-                    android:layout_marginTop="2dp" />
             </LinearLayout>
 
             <TextView
@@ -50,11 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CONFIRMED"
-                android:textColor="@color/primary"
-                android:textSize="12sp"
                 android:textStyle="bold"
-                android:padding="6dp"
-                android:background="@drawable/button_secondary" />
         </LinearLayout>
 
         <!-- Member Details (Initially hidden, shown for professionals) -->
@@ -63,9 +48,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="8dp"
-            android:padding="8dp"
-            android:background="#11000000"
             android:visibility="gone">
 
             <TextView
@@ -73,7 +55,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Condition: None"
-                android:textColor="@color/text_primary"
                 android:textSize="13sp"
                 android:textStyle="italic" />
         </LinearLayout>
@@ -83,7 +64,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
 
             <TextView
                 android:id="@+id/tvDate"
@@ -91,18 +71,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Jan 15, 2024"
-                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:drawableStart="@drawable/baseline_calendar_month_24"
-                android:drawablePadding="4dp" />
 
             <TextView
                 android:id="@+id/tvTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10:00 AM"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
         </LinearLayout>
 
         <!-- Action Buttons -->
@@ -112,65 +88,36 @@
             android:orientation="horizontal"
             android:layout_marginTop="8dp">
 
-            <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
                 android:layout_marginEnd="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_secondary"
-                android:text="Cancel"
-                android:textColor="@android:color/white"
-                android:textSize="11sp"
                 android:visibility="gone" />
 
-            <Button
                 android:id="@+id/btnReschedule"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_accent"
                 android:text="Reschedule"
-                android:textColor="@android:color/white"
-                android:textSize="11sp"
                 android:visibility="gone" />
 
-            <Button
                 android:id="@+id/btnRate"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_success"
                 android:text="Rate"
-                android:textColor="@android:color/white"
-                android:textSize="11sp"
                 android:visibility="gone" />
 
-            <Button
                 android:id="@+id/btnCreateReport"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
                 android:layout_marginStart="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_accent"
                 android:text="Create Report"
-                android:textColor="@android:color/white"
-                android:textSize="11sp"
                 android:visibility="gone" />
 
-            <Button
                 android:id="@+id/btnViewReport"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
                 android:layout_marginStart="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_success"
                 android:text="View Report"
-                android:textColor="@android:color/white"
-                android:textSize="11sp"
                 android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>

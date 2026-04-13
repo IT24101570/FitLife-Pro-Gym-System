@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_luxury"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gold_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ELITE CATALOGUE"
+            android:textColor="@color/text_off_white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="CURATED CATEGORIES"
+                android:textColor="@color/text_muted_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15" />
+
+            <!-- Categories -->
+            <include
+                android:id="@+id/cardBeginner"
+                layout="@layout/item_exercise_main_category" />
+            <include
+                android:id="@+id/cardIntermediate"
+                layout="@layout/item_exercise_main_category" />
+            <include
+                android:id="@+id/cardAdvance"
+                layout="@layout/item_exercise_main_category" />
+            <include
+                android:id="@+id/cardDiscover"
+                layout="@layout/item_exercise_main_category" />
+            <include
+                android:id="@+id/cardOthers"
+                layout="@layout/item_exercise_main_category" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

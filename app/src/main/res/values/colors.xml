@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Luxury Fitness Palette -->
+    <color name="bg_luxury">#0C0C0C</color>
+    <color name="surface_luxury">#121212</color>
+    <color name="gold_primary">#D4AF77</color>
+    <color name="gold_dark">#B7791F</color>
+    <color name="text_off_white">#F5F5F5</color>
+    <color name="text_muted_gold">#A89060</color>
+
+    <!-- Deep Black/Dark Grey Backgrounds -->
+    <color name="background">#0C0C0C</color>
+    <color name="surface">#121212</color>
+    <color name="surface_variant">#1A1A1A</color>
+
+    <!-- Luxury Accents -->
+    <color name="accent">#D4AF77</color>
+    <color name="accent_bright">#F7D794</color>
+    <color name="accent_muted">#3D3425</color>
+
+    <!-- Text Palette -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_tertiary">#757575</color>
+    <color name="text_on_accent">#000000</color>
+
+    <!-- Gradients -->
+    <color name="grad_start">#00E5FF</color>
+    <color name="grad_end">#00B0FF</color>
+    <color name="grad_dark_start">#1E1E1E</color>
+    <color name="grad_dark_end">#000000</color>
+
+    <!-- Status -->
+    <color name="success">#00C853</color>
+    <color name="error">#FF1744</color>
+    <color name="warning">#FFAB00</color>
+    <color name="info">#2979FF</color>
+
+    <color name="divider">#333333</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="primary">#121212</color>
+    <color name="primary_dark">#000000</color>
+
+    <!-- Tiers -->
+    <color name="tier_basic">#90A4AE</color>
+    <color name="tier_elite">#00E5FF</color>
+</resources>

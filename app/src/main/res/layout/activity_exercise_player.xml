@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_luxury">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="12dp"
+        android:padding="12dp"
+        android:src="@android:drawable/ic_menu_revert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/gold_primary" />
+
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STATION 1 OF 10"
+        android:textColor="@color/text_muted_gold"
+        android:textSize="12sp"
+        android:letterSpacing="0.15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvExerciseName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Elite Exercise"
+        android:textColor="@color/text_off_white"
+        android:textSize="32sp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="-0.02"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounter" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardImage"
+        style="@style/PremiumCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExerciseName">
+
+        <ImageView
+            android:id="@+id/ivExerciseAction"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:padding="16dp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorColor="@color/gold_primary"
+        app:indicatorSize="240dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTimer"
+        app:layout_constraintEnd_toEndOf="@id/tvTimer"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@id/tvTimer"
+        app:layout_constraintTop_toTopOf="@id/tvTimer"
+        app:layout_constraintVertical_bias="0.21"
+        app:trackColor="@color/surface_luxury"
+        app:trackThickness="4dp" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:text="00:30"
+        android:textColor="@color/gold_primary"
+        android:textSize="72sp"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintBottom_toTopOf="@+id/layoutControls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutControls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnQuit"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="QUIT"
+            android:textColor="@color/error"
+            android:letterSpacing="0.1"
+            android:textStyle="bold" />
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPauseResume"
+            style="@style/PremiumButton"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:text="PAUSE SESSION"
+            android:textSize="14sp"
+            android:letterSpacing="0.1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="SKIP"
+            android:textColor="@color/text_muted_gold"
+            android:letterSpacing="0.1"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

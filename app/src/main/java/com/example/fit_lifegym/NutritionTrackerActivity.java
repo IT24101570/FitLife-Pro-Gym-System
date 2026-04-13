@@ -37,7 +37,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Date;
 import java.util.UUID;
 
-public class NutritionTrackerActivity extends AppCompatActivity {
 
     private ImageView btnBack;
     private TextView tvRemainingCalories, tvEaten, tvBurned;
@@ -87,17 +86,14 @@ public class NutritionTrackerActivity extends AppCompatActivity {
         View macroProtein = findViewById(R.id.macroProtein);
         tvProteinValue = macroProtein.findViewById(R.id.tvMacroValue);
         proteinProgress = macroProtein.findViewById(R.id.macroProgress);
-        ((TextView)macroProtein.findViewById(R.id.tvMacroLabel)).setText("PROTEIN");
 
         View macroCarbs = findViewById(R.id.macroCarbs);
         tvCarbsValue = macroCarbs.findViewById(R.id.tvMacroValue);
         carbsProgress = macroCarbs.findViewById(R.id.macroProgress);
-        ((TextView)macroCarbs.findViewById(R.id.tvMacroLabel)).setText("CARBS");
 
         View macroFats = findViewById(R.id.macroFats);
         tvFatsValue = macroFats.findViewById(R.id.tvMacroValue);
         fatsProgress = macroFats.findViewById(R.id.macroProgress);
-        ((TextView)macroFats.findViewById(R.id.tvMacroLabel)).setText("FATS");
 
         rvMeals = findViewById(R.id.rvMeals);
         btnAddMeal = findViewById(R.id.btnAddMeal);
@@ -120,7 +116,6 @@ public class NutritionTrackerActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         rvMeals.setLayoutManager(new LinearLayoutManager(this));
-        mealAdapter = new MealAdapter(nutritionLog.getMeals(), null);
         rvMeals.setAdapter(mealAdapter);
     }
 
@@ -189,7 +184,6 @@ public class NutritionTrackerActivity extends AppCompatActivity {
 
     private void deactivatePlan() {
         userRef.child("activeMealPlanId").removeValue()
-                .addOnSuccessListener(aVoid -> Toast.makeText(this, "Meal plan deactivated", Toast.LENGTH_SHORT).show());
     }
 
     private void updateUI() {
@@ -225,15 +219,12 @@ public class NutritionTrackerActivity extends AppCompatActivity {
         
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_dropdown, mealTypes);
         etMealType.setAdapter(adapter);
-        etMealType.setText(mealTypes[0], false);
+            etMealType.setText(mealTypes[0], false);
         etMealType.setOnClickListener(v -> etMealType.showDropDown());
         
         AlertDialog dialog = new AlertDialog.Builder(this, R.style.Theme_Fit_lifeGym)
-            .setTitle("Log New Meal")
             .setView(dialogView)
             .setCancelable(false)
-            .setPositiveButton("Log Meal", null)
-            .setNegativeButton("Cancel", (d, which) -> d.dismiss())
             .create();
 
         dialog.show();
@@ -248,7 +239,6 @@ public class NutritionTrackerActivity extends AppCompatActivity {
             String fatsStr = etFats.getText().toString().trim();
             
             if (mealName.isEmpty() || caloriesStr.isEmpty()) {
-                Toast.makeText(this, "Please fill required fields", Toast.LENGTH_SHORT).show();
                 return;
             }
             
@@ -258,22 +248,21 @@ public class NutritionTrackerActivity extends AppCompatActivity {
                 double carbs = carbsStr.isEmpty() ? 0 : Double.parseDouble(carbsStr);
                 double fats = fatsStr.isEmpty() ? 0 : Double.parseDouble(fatsStr);
                 
-                FoodItem foodItem = new FoodItem(UUID.randomUUID().toString(), mealName, calories);
-                foodItem.setProtein(protein);
-                foodItem.setCarbs(carbs);
-                foodItem.setFats(fats);
-                
-                Meal meal = new Meal(sessionManager.getUserId(), type.toUpperCase(), mealName);
-                meal.setId(UUID.randomUUID().toString());
-                meal.addFoodItem(foodItem);
-                
-                nutritionLog.addMeal(meal);
+                    FoodItem foodItem = new FoodItem(UUID.randomUUID().toString(), mealName, calories);
+                    foodItem.setProtein(protein);
+                    foodItem.setCarbs(carbs);
+                    foodItem.setFats(fats);
+                    
+                    Meal meal = new Meal(sessionManager.getUserId(), type.toUpperCase(), mealName);
+                    meal.setId(UUID.randomUUID().toString());
+                    meal.addFoodItem(foodItem);
+                    
+                    nutritionLog.addMeal(meal);
                 mealAdapter.notifyDataSetChanged();
                 updateUI();
                 
                 dialog.dismiss();
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Invalid numbers", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -137,7 +137,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:nestedScrollingEnabled="false"
-                tools:listitem="@layout/item_professional" />
 
             <!-- Personalized Health Context -->
             <com.google.android.material.card.MaterialCardView

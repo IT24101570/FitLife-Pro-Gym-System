@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -19,22 +18,12 @@
 
             <ImageView
                 android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="8dp"
-                android:src="@android:drawable/ic_menu_revert"
-                app:tint="@color/text_primary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Nutrition Intel"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
                 android:textStyle="bold"
-                android:letterSpacing="0.05"/>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -49,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
 
             <!-- Active Meal Plan Section -->
             <com.google.android.material.card.MaterialCardView
@@ -59,17 +47,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:visibility="gone"
-                app:cardBackgroundColor="@color/surface_variant">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ACTIVE MEAL PLAN"
-                        android:textColor="@color/accent"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.1"/>
@@ -77,16 +61,12 @@
                         android:id="@+id/tvActivePlanName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Weight Loss Starter"
-                        android:textColor="@color/text_primary"
-                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_marginTop="4dp"/>
                     <TextView
                         android:id="@+id/tvActivePlanGoal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Goal: Weight Loss"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp"
                         android:layout_marginTop="2dp"/>
@@ -96,7 +76,6 @@
                         style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Deactivate Plan"
                         android:textColor="@color/error"
                         android:textSize="12sp"
                         android:layout_gravity="end"/>
@@ -108,7 +87,6 @@
                 style="@style/PremiumCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -117,16 +95,10 @@
 
                     <com.google.android.material.progressindicator.CircularProgressIndicator
                         android:id="@+id/calorieProgress"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
-                        app:indicatorColor="@color/accent"
-                        app:indicatorSize="160dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:trackColor="@color/surface_variant"
                         app:trackCornerRadius="10dp"
-                        app:trackThickness="12dp"
                         android:progress="65" />
 
                     <LinearLayout
@@ -144,15 +116,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1420"
-                            android:textColor="@color/text_primary"
-                            android:textSize="32sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="KCAL LEFT"
-                            android:textColor="@color/text_secondary"
                             android:textSize="10sp"
                             android:letterSpacing="0.1"
                             android:textStyle="bold" />
@@ -161,7 +129,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
                         android:orientation="horizontal"
                         app:layout_constraintTop_toBottomOf="@+id/calorieProgress">
 
@@ -176,19 +143,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="980"
-                                android:textColor="@color/text_primary"
                                 android:textStyle="bold" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="EATEN"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <View
                             android:layout_width="1dp"
-                            android:layout_height="20dp"
                             android:layout_gravity="center"
                             android:background="@color/divider" />
 
@@ -203,14 +165,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="320"
-                                android:textColor="@color/text_primary"
                                 android:textStyle="bold" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="BURNED"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="10sp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -222,8 +180,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="DAILY MACROS"
-                android:textColor="@color/accent"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.1" />
@@ -256,21 +212,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daily Intake Log"
-                    android:textColor="@color/text_primary"
-                    android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddMeal"
-                    style="@style/Widget.Material3.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="+ LOG MEAL"
-                    android:textColor="@color/accent"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
             </RelativeLayout>
 
             <!-- Meal List -->
@@ -287,8 +235,6 @@
                 style="@style/PremiumButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="24dp"
-                android:text="Explore Elite Meal Plans"
                 android:layout_marginBottom="40dp"/>
 
         </LinearLayout>

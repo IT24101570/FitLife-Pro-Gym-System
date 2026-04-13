@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_luxury">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_luxury"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_arrow_back_24"
+                app:tint="@color/gold_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/command_center"
+                android:textColor="@color/text_off_white"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <ImageButton
+                android:id="@+id/btnLogoutToolbar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_lock_power_off"
+                app:tint="@color/error" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/enterprise_analytics"
+                android:textColor="@color/text_muted_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:alignmentMode="alignMargins">
+
+                <include
+                    android:id="@+id/statUsers"
+                    layout="@layout/item_stat_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1" />
+
+                <include
+                    android:id="@+id/statMembers"
+                    layout="@layout/item_stat_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1" />
+
+                <include
+                    android:id="@+id/statBookings"
+                    layout="@layout/item_stat_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1" />
+
+                <include
+                    android:id="@+id/statRevenue"
+                    layout="@layout/item_stat_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1" />
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/verification_registry"
+                android:textColor="@color/text_muted_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApproveDoctorRequests"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/medical_verifications"
+                app:backgroundTint="@color/surface_luxury"
+                android:textColor="@color/gold_primary"
+                app:strokeColor="@color/gold_primary"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApproveTrainerRequests"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/trainer_verifications"
+                app:backgroundTint="@color/surface_luxury"
+                android:textColor="@color/gold_primary"
+                app:strokeColor="@color/gold_primary"
+                app:strokeWidth="1dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/system_operations"
+                android:textColor="@color/text_muted_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnManageSystem"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/system_configuration" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewMembers"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/elite_membership_registry"
+                app:backgroundTint="@color/surface_luxury"
+                android:textColor="@color/gold_primary"
+                app:strokeColor="@color/gold_primary"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewPayments"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/revenue_archive"
+                app:backgroundTint="@color/surface_luxury"
+                android:textColor="@color/gold_primary"
+                app:strokeColor="@color/gold_primary"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignOutTop"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="40dp"
+                android:text="@string/sign_out"
+                android:textColor="@color/error"
+                app:backgroundTint="@color/surface_luxury"
+                app:strokeColor="@color/error"
+                app:strokeWidth="1dp"
+                app:icon="@android:drawable/ic_lock_power_off"
+                app:iconTint="@color/error" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

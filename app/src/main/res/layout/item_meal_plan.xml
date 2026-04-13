@@ -3,69 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/surface"
-    app:cardCornerRadius="16dp"
-    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvPlanName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weight Loss Starter"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvPlanName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight Loss Starter"
 
-            <TextView
-                android:id="@+id/tvGoal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvPlanName"
-                android:layout_marginTop="4dp"
-                android:background="@color/surface_variant"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="2dp"
-                android:text="WEIGHT LOSS"
-                android:textColor="@color/accent"
-                android:textSize="10sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="WEIGHT LOSS"
+                    android:textSize="10sp"
 
-            <TextView
-                android:id="@+id/tvCalories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:text="1500 kcal"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
-                android:textStyle="bold" />
         </RelativeLayout>
 
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="A balanced plan focused on calorie deficit while maintaining high protein intake."
             android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -78,14 +53,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="120g"
-                    android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Protein"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -98,14 +69,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="150g"
-                    android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Carbs"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -118,24 +85,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="50g"
-                    android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fats"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="10sp" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnActivate"
-                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Activate"
-                android:textColor="@color/primary"
-                app:cornerRadius="8dp" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

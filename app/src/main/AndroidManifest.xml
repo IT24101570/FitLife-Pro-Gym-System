@@ -37,12 +37,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fit_lifeGym"
-        android:enableOnBackInvokedCallback="true">
 
         <activity
             android:name=".IntroActivity"

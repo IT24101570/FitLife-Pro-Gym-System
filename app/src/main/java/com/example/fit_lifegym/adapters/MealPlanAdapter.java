@@ -57,7 +57,6 @@ public class MealPlanAdapter extends RecyclerView.Adapter<MealPlanAdapter.ViewHo
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvPlanName, tvGoal, tvCalories, tvDescription, tvProtein, tvCarbs, tvFats;
         Button btnActivate;
 
         public ViewHolder(@NonNull View itemView) {

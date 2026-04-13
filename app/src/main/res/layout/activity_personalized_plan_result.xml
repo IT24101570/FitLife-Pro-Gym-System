@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_luxury">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_luxury">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_revert"
+            app:navigationIconTint="@color/gold_primary"
+            app:title="@string/label_personalized_plan_title"
+            app:titleTextColor="@color/gold_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:id="@+id/tvSelectedGoal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Goal: Weight Loss"
+                        android:textStyle="bold"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="18sp"
+                        android:letterSpacing="-0.01" />
+                    <TextView
+                        android:id="@+id/tvSubmissionDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Submitted on Oct 24, 2023"
+                        android:textColor="@color/text_muted_gold"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.05" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#1AFFFFFF"
+                        android:layout_marginVertical="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_your_notes"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+                    <TextView
+                        android:id="@+id/tvMemberNotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="No additional notes."
+                        android:textColor="@color/text_off_white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvPhotosLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/label_progress_chronicle"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"
+                        android:visibility="gone"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvPhotos"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvWaitingMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_waiting_experts"
+                android:textAlignment="center"
+                android:textColor="@color/text_muted_gold"
+                android:padding="32dp"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp"
+                android:visibility="gone" />
+
+            <!-- Trainer Guidance Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTrainerGuidance"
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_elite_guidance"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tvTrainerInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Assigned by Practitioner John"
+                        android:textColor="@color/text_muted_gold"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.05" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#1AFFFFFF"
+                        android:layout_marginVertical="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_weekly_target"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+                    <TextView
+                        android:id="@+id/tvWeeklyTarget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="5km run 3 times a week"
+                        android:textColor="@color/text_off_white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/label_advice"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+                    <TextView
+                        android:id="@+id/tvTrainerAdvice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Keep hydrated and focus on form."
+                        android:textColor="@color/text_off_white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/label_assigned_academy"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+                    <TextView
+                        android:id="@+id/tvVideoLinks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="No links provided."
+                        android:textColor="@color/gold_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Doctor Meal Plan Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDoctorPlan"
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_dietary_prescription_title"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tvDoctorInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Assigned by Practitioner Smith"
+                        android:textColor="@color/text_muted_gold"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.05" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#1AFFFFFF"
+                        android:layout_marginVertical="16dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_breakfast_caps" android:textColor="@color/gold_primary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" />
+                    <TextView android:id="@+id/tvBreakfast" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Oats and fruits" android:textColor="@color/text_off_white" android:textSize="14sp" android:layout_marginBottom="16dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_lunch_caps" android:textColor="@color/gold_primary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" />
+                    <TextView android:id="@+id/tvLunch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Grilled chicken salad" android:textColor="@color/text_off_white" android:textSize="14sp" android:layout_marginBottom="16dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_dinner_caps" android:textColor="@color/gold_primary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" />
+                    <TextView android:id="@+id/tvDinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Steamed fish and veg" android:textColor="@color/text_off_white" android:textSize="14sp" android:layout_marginBottom="16dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_snacks_caps" android:textColor="@color/gold_primary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" />
+                    <TextView android:id="@+id/tvSnacks" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Nuts or Greek yogurt" android:textColor="@color/text_off_white" android:textSize="14sp" android:layout_marginBottom="16dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_nutrition_notes_caps" android:textColor="@color/gold_primary" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1" />
+                    <TextView android:id="@+id/tvNutritionNotes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Avoid processed sugars." android:textColor="@color/text_off_white" android:textSize="14sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

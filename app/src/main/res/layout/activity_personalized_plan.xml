@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_revert"
+            app:title="Personalized Fitness Plan"
+            app:titleTextColor="@color/text_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. Progress Photos"
+                        android:textStyle="bold"
+                        android:textColor="@color/accent"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Upload front and side view photos for assessment."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/ivPhoto1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:scaleType="centerCrop"
+                            android:background="@color/surface_variant"
+                            android:src="@drawable/baseline_add_a_photo_24"
+                            android:padding="40dp"
+                            app:tint="@color/text_secondary" />
+                        <ImageView
+                            android:id="@+id/ivPhoto2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="centerCrop"
+                            android:background="@color/surface_variant"
+                            android:src="@drawable/baseline_add_a_photo_24"
+                            android:padding="40dp"
+                            app:tint="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/PremiumCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. Select Your Primary Goal"
+                        android:textStyle="bold"
+                        android:textColor="@color/accent"
+                        android:textSize="16sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rgGoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp">
+                        <RadioButton android:id="@+id/rbWeightGain" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Weight Gain" android:textColor="@color/text_primary" />
+                        <RadioButton android:id="@+id/rbWeightLoss" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Weight Loss" android:textColor="@color/text_primary" />
+                        <RadioButton android:id="@+id/rbMaintain" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Maintain Weight" android:textColor="@color/text_primary" />
+                        <RadioButton android:id="@+id/rbMuscle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Muscle Building" android:textColor="@color/text_primary" />
+                        <RadioButton android:id="@+id/rbFatReduction" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Fat Reduction" android:textColor="@color/text_primary" />
+                    </RadioGroup>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Additional Notes / Health Concerns"
+                android:layout_marginBottom="24dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="3"
+                    android:gravity="top"
+                    android:textColor="@color/text_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                style="@style/PremiumButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Generate My Plan" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
