@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,9 +45,9 @@ public class DoctorActivity extends AppCompatActivity implements MainService.Inc
     @Inject MainServiceRepository serviceRepo;
     
     private TextView tvApprovalStatus;
-    private MaterialCardView cardManageProfile, cardConsultations, cardAvailability, cardMealPlans, cardMedicalReports;
+    private MaterialCardView cardManageProfile, cardConsultations, cardAvailability, cardMealPlans, cardMedicalReports, btnPersonalizedPlan;
     private MaterialButton btnRatings, btnLogout;
-    private ImageButton btnBack;
+    private ImageView btnBack;
 
     // Incoming Call UI
     private View incomingCallLayout;
@@ -77,6 +77,7 @@ public class DoctorActivity extends AppCompatActivity implements MainService.Inc
         cardAvailability = findViewById(R.id.cardAvailability);
         cardMealPlans = findViewById(R.id.cardMealPlans);
         cardMedicalReports = findViewById(R.id.cardMedicalReports);
+        btnPersonalizedPlan = findViewById(R.id.btnPersonalizedPlan);
         btnRatings = findViewById(R.id.btnRatings);
         btnLogout = findViewById(R.id.btnLogout);
 
@@ -144,13 +145,30 @@ public class DoctorActivity extends AppCompatActivity implements MainService.Inc
         cardManageProfile.setOnClickListener(v -> startActivity(new Intent(this, ProfessionalProfileActivity.class)));
         cardConsultations.setOnClickListener(v -> startActivity(new Intent(this, BookingHistoryActivity.class)));
         cardAvailability.setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
-        cardMealPlans.setOnClickListener(v -> startActivity(new Intent(this, DoctorMealPlanActivity.class)));
+        cardMealPlans.setOnClickListener(v -> {
+            if (v.isEnabled()) {
+                startActivity(new Intent(this, DoctorMealPlanActivity.class));
+            } else {
+                showPendingToast();
+            }
+        });
         cardMedicalReports.setOnClickListener(v -> startActivity(new Intent(this, MedicalReportsListActivity.class)));
-        
+        btnPersonalizedPlan.setOnClickListener(v -> {
+            if (v.isEnabled()) {
+                startActivity(new Intent(this, DoctorPersonalizedPlanActivity.class));
+            } else {
+                showPendingToast();
+            }
+        });
+
         // Updated to point to the new Reviews activity
         btnRatings.setOnClickListener(v -> startActivity(new Intent(this, ProfessionalReviewsActivity.class)));
 
         btnLogout.setOnClickListener(v -> showLogoutDialog());
+    }
+
+    private void showPendingToast() {
+        Toast.makeText(this, "Your account is pending approval by the Admin. This feature will be available once approved.", Toast.LENGTH_LONG).show();
     }
 
     private void showLogoutDialog() {
@@ -211,12 +229,14 @@ public class DoctorActivity extends AppCompatActivity implements MainService.Inc
         cardAvailability.setEnabled(enabled);
         cardMealPlans.setEnabled(enabled);
         cardMedicalReports.setEnabled(enabled);
+        btnPersonalizedPlan.setEnabled(enabled);
         btnRatings.setEnabled(enabled);
         float alpha = enabled ? 1.0f : 0.5f;
         cardConsultations.setAlpha(alpha);
         cardAvailability.setAlpha(alpha);
         cardMealPlans.setAlpha(alpha);
         cardMedicalReports.setAlpha(alpha);
+        btnPersonalizedPlan.setAlpha(alpha);
         btnRatings.setAlpha(alpha);
     }
 
