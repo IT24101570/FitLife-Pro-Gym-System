@@ -46,6 +46,13 @@ public class MealPlanAdapter extends RecyclerView.Adapter<MealPlanAdapter.ViewHo
         holder.tvCarbs.setText((int)plan.getCarbs() + "g");
         holder.tvFats.setText((int)plan.getFats() + "g");
 
+        if (plan.getCreatorName() != null && !plan.getCreatorName().isEmpty()) {
+            holder.tvDoctorName.setVisibility(View.VISIBLE);
+            holder.tvDoctorName.setText(holder.itemView.getContext().getString(R.string.label_curated_by, plan.getCreatorName()));
+        } else {
+            holder.tvDoctorName.setVisibility(View.GONE);
+        }
+
         holder.btnActivate.setOnClickListener(v -> {
             if (listener != null) listener.onActivateClick(plan);
         });
@@ -57,12 +64,13 @@ public class MealPlanAdapter extends RecyclerView.Adapter<MealPlanAdapter.ViewHo
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvPlanName, tvGoal, tvCalories, tvDescription, tvProtein, tvCarbs, tvFats;
+        TextView tvPlanName, tvGoal, tvCalories, tvDescription, tvProtein, tvCarbs, tvFats, tvDoctorName;
         Button btnActivate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvPlanName = itemView.findViewById(R.id.tvPlanName);
+            tvDoctorName = itemView.findViewById(R.id.tvDoctorName);
             tvGoal = itemView.findViewById(R.id.tvGoal);
             tvCalories = itemView.findViewById(R.id.tvCalories);
             tvDescription = itemView.findViewById(R.id.tvDescription);

@@ -15,6 +15,7 @@ public class MealPlan {
     private double fats;
     private List<String> recipes; // List of recipe IDs
     private String creatorId; // Doctor ID
+    private String creatorName;
     private String difficulty; // Easy, Moderate, Hard
     private boolean isPremium;
 
@@ -61,6 +62,8 @@ public class MealPlan {
     public void setRecipes(List<String> recipes) { this.recipes = recipes; }
     public String getCreatorId() { return creatorId; }
     public void setCreatorId(String creatorId) { this.creatorId = creatorId; }
+    public String getCreatorName() { return creatorName; }
+    public void setCreatorName(String creatorName) { this.creatorName = creatorName; }
     public String getDifficulty() { return difficulty; }
     public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
     public boolean isPremium() { return isPremium; }
