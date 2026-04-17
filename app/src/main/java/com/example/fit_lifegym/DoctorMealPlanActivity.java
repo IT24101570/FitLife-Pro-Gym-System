@@ -107,7 +107,7 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
         if (tvTitle != null) tvTitle.setText("Plans for " + booking.getUserName());
 
         List<MealPlan> assignedPlans = new ArrayList<>();
-        MealPlanDialogAdapter dialogAdapter = new MealPlanDialogAdapter(assignedPlans);
+        MealPlanDialogAdapter dialogAdapter = new MealPlanDialogAdapter(assignedPlans, booking);
         rvDialogMealPlans.setLayoutManager(new LinearLayoutManager(this));
         rvDialogMealPlans.setAdapter(dialogAdapter);
 
@@ -186,6 +186,7 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
                     }
                     
                     plan.setCreatorId(sessionManager.getUserId());
+                    plan.setCreatorName(sessionManager.getName());
 
                     assignedMealPlansRef.child(booking.getUserId()).child(plan.getId()).setValue(plan)
                             .addOnSuccessListener(aVoid -> Toast.makeText(this, "Plan Assigned Successfully", Toast.LENGTH_SHORT).show())
@@ -210,26 +211,97 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             Booking b = members.get(position);
             holder.tvName.setText(b.getUserName());
-            holder.btnAction.setText("Manage Plans");
-            holder.btnAction.setOnClickListener(v -> showMealPlansDialog(b));
+            holder.btnCreatePlan.setOnClickListener(v -> showCreateMealPlanDialog(b));
+            holder.btnManagePlans.setOnClickListener(v -> showMealPlansDialog(b));
         }
 
         @Override
         public int getItemCount() { return members.size(); }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            TextView tvName; MaterialButton btnAction;
+            TextView tvName; MaterialButton btnCreatePlan, btnManagePlans;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvName = itemView.findViewById(R.id.tvMemberName);
-                btnAction = (MaterialButton) itemView.findViewById(R.id.btnAssignPlan);
+                btnCreatePlan = itemView.findViewById(R.id.btnCreatePlan);
+                btnManagePlans = itemView.findViewById(R.id.btnManagePlans);
             }
         }
     }
 
+    private void showEditMealPlanDialog(Booking booking, MealPlan plan) {
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_create_meal_plan, null);
+        TextInputEditText etPlanName = dialogView.findViewById(R.id.etPlanName);
+        TextInputEditText etGoal = dialogView.findViewById(R.id.etGoal);
+        TextInputEditText etDescription = dialogView.findViewById(R.id.etDescription);
+        TextInputEditText etTotalCalories = dialogView.findViewById(R.id.etTotalCalories);
+        TextInputEditText etProtein = dialogView.findViewById(R.id.etProtein);
+        TextInputEditText etCarbs = dialogView.findViewById(R.id.etCarbs);
+        TextInputEditText etFats = dialogView.findViewById(R.id.etFats);
+
+        etPlanName.setText(plan.getName());
+        etGoal.setText(plan.getGoal());
+        etDescription.setText(plan.getDescription());
+        etTotalCalories.setText(String.valueOf(plan.getTotalCalories()));
+        etProtein.setText(String.valueOf(plan.getProtein()));
+        etCarbs.setText(String.valueOf(plan.getCarbs()));
+        etFats.setText(String.valueOf(plan.getFats()));
+
+        new AlertDialog.Builder(this)
+                .setTitle("Edit Plan for " + booking.getUserName())
+                .setView(dialogView)
+                .setPositiveButton("Update", (dialog, which) -> {
+                    String name = etPlanName.getText().toString().trim();
+                    String goal = etGoal.getText().toString().trim();
+                    String desc = etDescription.getText().toString().trim();
+                    String calStr = etTotalCalories.getText().toString().trim();
+
+                    if (TextUtils.isEmpty(name) || TextUtils.isEmpty(calStr)) {
+                        Toast.makeText(this, "Plan name and calories required", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    plan.setName(name);
+                    plan.setGoal(goal);
+                    plan.setDescription(desc);
+                    try {
+                        plan.setTotalCalories(Integer.parseInt(calStr));
+                        plan.setProtein(etProtein.getText().toString().isEmpty() ? 0 : Double.parseDouble(etProtein.getText().toString()));
+                        plan.setCarbs(etCarbs.getText().toString().isEmpty() ? 0 : Double.parseDouble(etCarbs.getText().toString()));
+                        plan.setFats(etFats.getText().toString().isEmpty() ? 0 : Double.parseDouble(etFats.getText().toString()));
+                    } catch (Exception e) {
+                        Toast.makeText(this, "Invalid number format", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    assignedMealPlansRef.child(booking.getUserId()).child(plan.getId()).setValue(plan)
+                            .addOnSuccessListener(aVoid -> Toast.makeText(this, "Plan Updated Successfully", Toast.LENGTH_SHORT).show())
+                            .addOnFailureListener(e -> Toast.makeText(this, "Failed to update plan", Toast.LENGTH_SHORT).show());
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void deleteMealPlan(Booking booking, MealPlan plan) {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete Plan")
+                .setMessage("Are you sure you want to delete this meal plan?")
+                .setPositiveButton("Delete", (dialog, which) -> {
+                    assignedMealPlansRef.child(booking.getUserId()).child(plan.getId()).removeValue()
+                            .addOnSuccessListener(aVoid -> Toast.makeText(this, "Plan Deleted", Toast.LENGTH_SHORT).show())
+                            .addOnFailureListener(e -> Toast.makeText(this, "Failed to delete plan", Toast.LENGTH_SHORT).show());
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
     private class MealPlanDialogAdapter extends RecyclerView.Adapter<MealPlanDialogAdapter.ViewHolder> {
         private final List<MealPlan> plans;
-        public MealPlanDialogAdapter(List<MealPlan> plans) { this.plans = plans; }
+        private final Booking booking;
+        public MealPlanDialogAdapter(List<MealPlan> plans, Booking booking) { 
+            this.plans = plans; 
+            this.booking = booking;
+        }
 
         @NonNull
         @Override
@@ -248,7 +320,13 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
             holder.tvProtein.setText((int)plan.getProtein() + "g");
             holder.tvCarbs.setText((int)plan.getCarbs() + "g");
             holder.tvFats.setText((int)plan.getFats() + "g");
+            
             holder.btnActivate.setVisibility(View.GONE);
+            holder.btnEdit.setVisibility(View.VISIBLE);
+            holder.btnDelete.setVisibility(View.VISIBLE);
+
+            holder.btnEdit.setOnClickListener(v -> showEditMealPlanDialog(booking, plan));
+            holder.btnDelete.setOnClickListener(v -> deleteMealPlan(booking, plan));
         }
 
         @Override
@@ -256,7 +334,7 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
 
         class ViewHolder extends RecyclerView.ViewHolder {
             TextView tvName, tvGoal, tvCalories, tvDescription, tvProtein, tvCarbs, tvFats; 
-            View btnActivate;
+            View btnActivate, btnEdit, btnDelete;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvName = itemView.findViewById(R.id.tvPlanName);
@@ -267,6 +345,8 @@ public class DoctorMealPlanActivity extends AppCompatActivity {
                 tvCarbs = itemView.findViewById(R.id.tvCarbs);
                 tvFats = itemView.findViewById(R.id.tvFats);
                 btnActivate = itemView.findViewById(R.id.btnActivate);
+                btnEdit = itemView.findViewById(R.id.btnEdit);
+                btnDelete = itemView.findViewById(R.id.btnDelete);
             }
         }
     }
