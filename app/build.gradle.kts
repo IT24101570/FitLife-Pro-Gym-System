@@ -28,31 +28,37 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     
     lint {
         abortOnError = false
     }
+
+    sourceSets {
+        getByName("main") {
+            assets.srcDirs("src/main/res/assets")
+        }
+    }
 }
 
 dependencies {
-    implementation(libs.appcompat)
+    implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     
     // Biometric
-    implementation("androidx.biometric:biometric:1.2.0-alpha05")
+    implementation(libs.androidx.biometric)
     
     // Firebase BOM
-    implementation(platform("com.google.firebase:firebase-bom:34.9.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-database")
-    implementation("com.google.firebase:firebase-messaging")
-    implementation("com.google.firebase:firebase-storage")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.storage)
     
     // Google Play Services & Health
     implementation(libs.play.services.fitness)
@@ -62,48 +68,55 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     
     // Calendar View
-    implementation("com.applandeo:material-calendar-view:1.9.0-rc03")
+    implementation(libs.calendar.view)
     
     // CardView
-    implementation("androidx.cardview:cardview:1.0.0")
+    implementation(libs.androidx.cardview)
     
     // ViewPager2
-    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation(libs.androidx.viewpager2)
     
     // Preference
-    implementation("androidx.preference:preference:1.2.1")
+    implementation(libs.androidx.preference)
     
     // Image Loading
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    implementation(libs.gms.play.services.fitness)
-    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
     
     // Charts
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation(libs.mp.android.chart)
     
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp.logging)
     
     // Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
     
     // WorkManager
-    implementation("androidx.work:work-runtime:2.9.0")
+    implementation(libs.androidx.work.runtime)
 
-    // WebRTC - Switched from JitPack to Maven Central for stability and sources
-    implementation("io.github.webrtc-sdk:android:104.5112.01")
+    // WebRTC
+    implementation(libs.webrtc)
     
     // PermissionX
-    implementation("com.guolindev.permissionx:permissionx:1.7.1")
+    implementation(libs.permissionx)
+
+    // YouTube Player
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+
+    // Cloudinary
+    implementation(libs.cloudinary)
+    implementation(libs.cloudinary.preprocess)
+    implementation(libs.cloudinary.download)
 
     // Hilt
     implementation(libs.hilt.android)
     annotationProcessor(libs.hilt.compiler)
     
     testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

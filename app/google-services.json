@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "990203577736-delha8cvfdmq0i331rdhc4phu0cuadj2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fit_lifegym",
+            "certificate_hash": "5dc5d4875d4a2218c43c4e7659f5bb210f95ec7c"
+          }
+        },
+        {
           "client_id": "990203577736-es465c1ip28fvmubqd8asbdgkmk6sb8h.apps.googleusercontent.com",
           "client_type": 3
         }
