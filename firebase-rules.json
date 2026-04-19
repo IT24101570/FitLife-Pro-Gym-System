@@ -17,7 +17,7 @@
     },
     "users": {
       "$uid": {
-        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN' || root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'TRAINER'",
         ".write": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
         "password": {
           ".read": false,
@@ -108,6 +108,41 @@
     "promoCodes": {
       ".read": "auth != null",
       ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN'"
+    },
+    "personalized_plans": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && ($uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'TRAINER' || root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN')"
+      }
+    },
+    "trainer_guidance": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'TRAINER' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN')"
+      }
+    },
+    "doctor_personalized_meal_plans": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN')"
+      }
+    },
+    "assigned_meal_plans": {
+      "$uid": {
+        ".indexOn": "creatorId",
+        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'",
+        ".write": "root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN'"
+      }
+    },
+    "mealPlans": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('role').val() === 'ADMIN' || root.child('users').child(auth.uid).child('role').val() === 'DOCTOR'"
+    },
+    "medical_reports": {
+      ".read": "auth != null",
+      "$reportId": {
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('role').val() === 'DOCTOR' || root.child('users').child(auth.uid).child('role').val() === 'ADMIN')"
+      }
     }
   }
 }
