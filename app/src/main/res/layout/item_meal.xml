@@ -6,15 +6,16 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    app:cardBackgroundColor="@color/surface"
-    app:cardCornerRadius="16dp"
-    app:strokeWidth="0dp">
+    app:cardBackgroundColor="@color/surface_luxury"
+    app:cardCornerRadius="24dp"
+    app:strokeColor="@color/divider"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
+        android:padding="20dp"
         android:gravity="center_vertical">
 
         <LinearLayout
@@ -28,28 +29,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BREAKFAST"
-                android:textColor="@color/accent"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textColor="@color/gold_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
 
             <TextView
                 android:id="@+id/tvMealName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
                 android:text="Oatmeal with Fruits"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
+                android:textColor="@color/text_off_white"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvMealDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
                 android:text="350 cal • P: 12g • C: 45g • F: 8g"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+                android:textColor="@color/text_muted_gold"
+                android:textSize="13sp"
+                android:letterSpacing="0.02" />
 
         </LinearLayout>
 
@@ -60,17 +63,17 @@
 
             <ImageButton
                 android:id="@+id/btnEditMeal"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_menu_edit"
-                app:tint="@color/text_secondary"
+                app:tint="@color/gold_primary"
                 android:contentDescription="Edit" />
 
             <ImageButton
                 android:id="@+id/btnDeleteMeal"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_menu_delete"
                 app:tint="@color/error"
